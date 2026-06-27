@@ -71,8 +71,8 @@ g++ -std=c++17 -Wall -O2 -Iinclude `
   src/EigenvectorCentralidad.cpp `
   src/DegreeCentralidad.cpp `
   src/ClusteringCoefficient.cpp `
-  src/BetweennessCentralidad.cpp `
-  src/ClosenessCentralidad.cpp `
+  src/BetweennessCentrality.cpp `
+  src/ClosenessCentrality.cpp `
   src/AverageShortestPath.cpp `
   experimentos/experimento_aristas.cpp `
   -o experimento_aristas.exe
