@@ -1,7 +1,9 @@
 #include "Grafo.hpp"
-#include "LectorDataset.hpp"
-#include "PageRank.hpp"
+#include "Lectordataset.hpp"
+#include "Pagerank.hpp"
 #include "EigenvectorCentralidad.hpp"
+#include "Degreecentrality.hpp"
+#include "Clusteringcoefficient.hpp"
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -38,6 +40,13 @@ void analizarGrafo(const Grafo& grafo, const std::string& nombre) {
 
     auto ec = eigenvectorCentralidad(grafo);
     imprimirTop(ec, "Eigenvector Centrality");
+
+    auto dc = degreeCentrality(grafo);
+    imprimirTop(dc.outDegree, "Degree Centrality (out)");
+
+    auto cc = clusteringCoefficient(grafo);
+    std::cout << "Clustering global: " << cc.global << "\n";
+    imprimirTop(cc.local, "Clustering Coefficient");
 }
 
 int main(int argc, char* argv[]) {

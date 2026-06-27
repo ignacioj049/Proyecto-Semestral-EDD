@@ -1,4 +1,4 @@
-#include "PageRank.hpp"
+#include "Pagerank.hpp"
 #include <cmath>
 #include <algorithm>
 

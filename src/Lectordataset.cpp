@@ -1,4 +1,4 @@
-#include "LectorDataset.hpp"
+#include "Lectordataset.hpp"
 #include <fstream>
 #include <sstream>
 #include <iostream>
