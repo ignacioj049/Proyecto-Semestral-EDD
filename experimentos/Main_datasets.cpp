@@ -4,6 +4,9 @@
 #include "EigenvectorCentralidad.hpp"
 #include "Degreecentrality.hpp"
 #include "Clusteringcoefficient.hpp"
+#include "BetweennessCentrality.hpp"
+#include "ClosenessCentrality.hpp" 
+#include "AverageShortestPath.hpp"
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -47,6 +50,18 @@ void analizarGrafo(const Grafo& grafo, const std::string& nombre) {
     auto cc = clusteringCoefficient(grafo);
     std::cout << "Clustering global: " << cc.global << "\n";
     imprimirTop(cc.local, "Clustering Coefficient");
+
+    std::cout << "Calculando Betweenness Centrality (esto puede tomar un momento)...\n";
+    auto bc = BetweennessCentrality::calcular(grafo);
+    imprimirTop(bc, "Betweenness Centrality");
+
+    std::cout << "Calculando Closeness Centrality...\n";
+    auto clc = ClosenessCentrality::calcular(grafo);
+    imprimirTop(clc, "Closeness Centrality");
+
+    std::cout << "Calculando Average Shortest Path...\n";
+    double asp = AverageShortestPath::calcular(grafo);
+    std::cout << "  -> Average Shortest Path Global: " << asp << "\n";
 }
 
 int main(int argc, char* argv[]) {
