@@ -36,6 +36,9 @@ public:
     int gradoSalida(const std::string& vertice) const;
     // grado de entrada
     int gradoEntrada(const std::string& vertice) const;
+    //  memoria aprox usada por la lista de adyacencia
+    size_t memoriaBytes() const;
+
 
 private:
     bool _dirigido;

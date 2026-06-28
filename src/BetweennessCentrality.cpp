@@ -28,20 +28,9 @@ unordered_map<string, double> BetweennessCentrality::calcular(const Grafo& grafo
         cb[v] = 0.0;
     }
 
-    int total_nodos = nodos.size();
-    int completados = 0;
-
     // El algoritmo de Brandes ejecuta un Dijkstra desde CADA nodo del grafo
     for (const string& s : nodos) {
         
-        // --- CONTADOR DE PROGRESO ---
-        //completados++;  //utilizado para sumar los nodos completados
-        // Imprime cada 50 nodos o al terminar. \r sobrescribe la misma línea.
-        // if (completados % 50 == 0 || completados == total_nodos) {
-        //     cout << "\r  -> Progreso Betweenness: " << completados << " / " << total_nodos 
-        //          << " nodos (" << (completados * 100 / total_nodos) << "%) calculados..." << flush;
-        // }
-        // ----------------------------
 
         stack<string> S; // Pila para el orden de recorrido
         

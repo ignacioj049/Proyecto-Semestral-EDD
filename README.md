@@ -54,30 +54,32 @@ g++ -std=c++17 -Wall -O2 -Iinclude `
   src/LectorDataset.cpp `
   src/PageRank.cpp `
   src/EigenvectorCentralidad.cpp `
-  src/DegreeCentralidad.cpp `
-  src/ClusteringCoefficient.cpp `
-  src/BetweennessCentralidad.cpp `
-  src/ClosenessCentralidad.cpp `
+  src/Degreecentrality.cpp `
+  src/Clusteringcoefficient.cpp `
+  src/Betweennesscentrality.cpp `
+  src/ClosenessCentrality.cpp `
   src/AverageShortestPath.cpp `
   experimentos/main_datasets.cpp `
   -o main_datasets.exe 
 ```
-Para el experimento de aristas:
+Para el experimento de aristas, crear el ejecutable:
 ```bash
 g++ -std=c++17 -Wall -O2 -Iinclude `
   src/Grafo.cpp `
   src/LectorDataset.cpp `
   src/PageRank.cpp `
   src/EigenvectorCentralidad.cpp `
-  src/DegreeCentralidad.cpp `
+  src/Degreecentrality.cpp `
   src/ClusteringCoefficient.cpp `
   src/BetweennessCentrality.cpp `
   src/ClosenessCentrality.cpp `
   src/AverageShortestPath.cpp `
   experimentos/experimento_aristas.cpp `
   -o experimento_aristas.exe
-
-./experimento_aristas.exe
+```
+Luego correr el ejecutable:
+```
+./experimento_aristas.exe ".\datasets"
 ```
 
 ---

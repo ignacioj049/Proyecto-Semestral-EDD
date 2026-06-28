@@ -23,18 +23,10 @@ double AverageShortestPath::calcular(const Grafo& grafo) {
 
     double suma_total_distancias = 0.0;
     long long cantidad_caminos_validos = 0;
-    int completados = 0;
 
     // Ejecutamos Dijkstra desde CADA nodo del grafo hacia todos los demás
     for (const string& origen : nodos) {
         
-        // --- Contador de progreso en consola ---
-        // completados++;
-        // if (completados % 50 == 0 || completados == n) {
-        //     cout << "\r  -> Progreso Average SP: " << completados << " / " << n 
-        //          << " nodos (" << (completados * 100 / n) << "%) calculados..." << flush;
-        // }
-        // ---------------------------------------
 
         unordered_map<string, double> dist;
         for (const string& v : nodos) {

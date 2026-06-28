@@ -25,18 +25,8 @@ unordered_map<string, double> ClosenessCentrality::calcular(const Grafo& grafo) 
         return closeness;
     }
 
-    int completados = 0;
-
     // Ejecutamos Dijkstra desde CADA nodo del grafo
     for (const string& origen : nodos) {
-        
-        // --- Contador de progreso en consola ---
-        //completados++;
-        // if (completados % 50 == 0 || completados == n) {
-        //     cout << "\r  -> Progreso Closeness: " << completados << " / " << n 
-        //          << " nodos (" << (completados * 100 / n) << "%) calculados..." << flush;
-        // }
-        // ---------------------------------------
 
         unordered_map<string, double> dist;
         for (const string& v : nodos) {

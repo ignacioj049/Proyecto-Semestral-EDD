@@ -102,3 +102,35 @@ int Grafo::gradoEntrada(const std::string& vertice) const {
     if (it == _gradoEntrada.end()) return 0;
     return it->second;
 }
+
+//Para calcular la memoria aproximada usada por la litsa
+size_t Grafo::memoriaBytes() const {
+    size_t total = 0;
+    //coste fijo del objeto grafo
+    total += sizeof(bool);  
+    total += sizeof(int);   
+
+    total += sizeof(std::vector<std::string>);
+    for (const auto& v : _vertices)
+        total += sizeof(std::string) + v.size();
+    
+    total += sizeof(std::unordered_map<std::string, std::vector<Arista>>);
+    for (const auto& [nombre, listaAristas] : _adyacencia) {
+        total += 56; // coste estimado por bucket en unordered_map
+        total += sizeof(std::string) + nombre.size(); // clave
+        total += sizeof(std::vector<Arista>);          // vector de aristas
+        for (const auto& arista : listaAristas) {
+            total += sizeof(double);                           // peso
+            total += sizeof(std::string) + arista.destino.size(); // destino
+        }
+    }
+
+    //mapa de grados de entrada
+    total += sizeof(std::unordered_map<std::string, int>);
+    for (const auto& [nombre, grado] : _gradoEntrada) {
+        total += 56;
+        total += sizeof(std::string) + nombre.size();
+        total += sizeof(int);
+    }
+    return total;
+}
