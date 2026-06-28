@@ -29,19 +29,19 @@ proyecto/
 │   ├── main_datasets.cpp 
 │   └── experimento_aristas.cpp 
 │
-├── datasets/
-│   ├── yeast/
-│   │   └── yeast.edgelist
-│   ├── imdb/
-│   │   └── imdb_edgelist.csv
-│   └── trade/
-│       ├── 2000.net
-│       ├── 2005.net
-│       ├── 2010.net
-│       ├── 2015.net
-│       └── 2018.net
-│
-└── CMakeLists.txt 
+└── datasets/
+    ├── yeast/
+    │   └── yeast.edgelist
+    ├── imdb/
+    │   └── imdb_edgelist.csv
+    └── trade/
+        ├── 2000.net
+        ├── 2005.net
+        ├── 2010.net
+        ├── 2015.net
+        └── 2018.net
+
+
 ```
 
 ---
