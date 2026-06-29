@@ -240,23 +240,30 @@ void experimentoAristas(Grafo grafo, const std::string& nombreDataset) {
 
 //main que ejecuta ambos experimentos sobre los 3 dataset
 int main(int argc, char* argv[]) {
-    std::string base = (argc > 1) ? argv[1] : ".\\datasets";
+    std::string base = (argc > 1) ? argv[1] : "./datasets";
  
     std::cout << "=== Proyecto Semestral: Metricas de Centralidad en Redes ===\n";
     std::cout << "Ruta de datasets: " << base << "\n";
     //Trade2000
-    try {
-        Grafo trade = leerTrade(base + "\\trade\\2000.net", "2000");
-        experimentoMemoria(trade, "Trade 2000");
-        experimentoTiempos(trade, "Trade 2000");
-        experimentoAristas(trade, "Trade 2000");
-    } catch (const std::exception& e) {
-        std::cerr << "[ERROR] Trade 2000: " << e.what() << "\n";
+    std::vector<std::string> anios = {"2000", "2005", "2010", "2015", "2018"};
+    for (const auto &anio : anios)
+    {
+        try
+        {
+            Grafo trade = leerTrade(base + "/trade/" + anio + ".net", anio);
+            experimentoMemoria(trade, "Trade " + anio);
+            experimentoTiempos(trade, "Trade " + anio);
+            experimentoAristas(trade, "Trade " + anio);
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << "[ERROR] Trade " << anio << ": " << e.what() << "\n";
+        }
     }
 
     //Yeast PPI
     try {
-        Grafo yeast = leerYeast(base + "\\yeast\\yeast.edgelist");
+        Grafo yeast = leerYeast(base + "/yeast/yeast.edgelist");
         experimentoMemoria(yeast, "Yeast PPI");
         experimentoTiempos(yeast, "Yeast PPI");
         experimentoAristas(yeast, "Yeast PPI");
@@ -266,7 +273,7 @@ int main(int argc, char* argv[]) {
 
     //imdb
     try {
-        Grafo imdb = leerIMDb(base + "\\imdb\\imdb_edgelist.csv");
+        Grafo imdb = leerIMDb(base + "/imdb/imdb_edgelist.csv");
         experimentoMemoria(imdb, "IMDb Actors");
         experimentoTiempos(imdb, "IMDb Actors");
         experimentoAristas(imdb, "IMDb Actors");
